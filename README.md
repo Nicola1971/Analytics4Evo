@@ -15,6 +15,15 @@ Before users can view their account information on the Google Analytics web site
 
 Actually, server-side authorization and OAuth 2.0 are not supported.
 
+# DashboardAnalytics4Evo
+![widget](https://user-images.githubusercontent.com/7342798/34579224-629bbd36-f188-11e7-8d9d-57c90b4aa110.png)
+
+# Analytics4Evo Module
+![module](https://user-images.githubusercontent.com/7342798/34579228-64e4837a-f188-11e7-8717-3d8cf15d8f5c.png)
+
+# PageAnalytics4Evo
+![pageanalytics](https://user-images.githubusercontent.com/7342798/34579232-67087d00-f188-11e7-92f9-e2d82d2926cd.png)
+
 ## How to allow access to analytics from your site
 
 1) go to https://console.developers.google.com/apis/credentials
