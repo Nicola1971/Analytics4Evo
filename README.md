@@ -6,10 +6,10 @@ The package includes:
 * **Analytics4Evo** Module: site Analytics reports overview
 * **PageAnalytics4Evo** Plugin: resource/page Analytics reports
 
-NOTE: this package is developed for Evolution cms 1.3/1.4
+NOTE 1 : this package is developed for Evolution cms 1.3/1.4
 To work with 1.2 release you need to set to "modxevo" the "cms" option in module and plugin settings.
 
-NOTE: this package use **Google Sign-In**. 
+NOTE 2 : this package use **Google Sign-In**. 
 Before users can view their account information on the Google Analytics web site, they must first log in to their Google Accounts
 
 Actually, server-side authorization and OAuth 2.0 are not supported.
@@ -26,3 +26,9 @@ Actually, server-side authorization and OAuth 2.0 are not supported.
 1) goto to https://ga-dev-tools.appspot.com/account-explorer/
 2) select account and property
 3) copy the ids
+
+# To Do
+
+* better reponsive charts (maybe move to another chart library)
+* server-side authorization / OAuth 2.0 (rewrite with php api (?))
+* dashboard widget
