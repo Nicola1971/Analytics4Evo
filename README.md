@@ -5,6 +5,7 @@ The package includes:
 
 * **Analytics4Evo** Module: site Analytics reports overview
 * **PageAnalytics4Evo** Plugin: resource/page Analytics reports
+* **DashboardAnalytics4Evo** Plugin: Dashboard widget **(require evo 1.3/1.4)**
 
 NOTE 1 : this package is developed for Evolution cms 1.3/1.4
 To work with 1.2 release you need to set to "modxevo" the "cms" option in module and plugin settings.
@@ -31,4 +32,4 @@ Actually, server-side authorization and OAuth 2.0 are not supported.
 
 * better reponsive charts (maybe move to another chart library)
 * server-side authorization / OAuth 2.0 (rewrite with php api (?))
-* dashboard widget
+
