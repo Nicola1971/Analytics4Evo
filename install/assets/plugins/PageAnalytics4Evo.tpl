@@ -43,10 +43,6 @@ $output ="";
 if ($cms == 'modxevo') { 
 $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
 }
-else {
-$output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"media/style/".$modx->config['manager_theme']."/style.css\">";  
-}
-
 $output .="
 <div class=\"tab-page\" id=\"tabAnalytics\">
 <h2 class=\"tab\">Analytics</h2>
