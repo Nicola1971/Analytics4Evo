@@ -3,13 +3,17 @@
  *
  * Resource Page Google Analytics for Evolution
  *
+ * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @category	plugin
  * @version     beta 0.1
- * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
- * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &cms=cms:;list;modxevo,evolution;evolution
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
+ * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &cms=cms:;list;modxevo,evolution;evolution
+ * @internal @installset base, sample
+ * @internal    @disabled 0
+ * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
+ * @lastupdate  05-01-2017
  */
 
 // get manager role

@@ -8,8 +8,12 @@
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Manager
- * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &cms=cms:;menu;modxevo,evolution;evolution
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
+ * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &cms=cms:;menu;modxevo,evolution;evolution
+ * @internal @installset base, sample
+ * @internal    @disabled 0
+ * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
+ * @lastupdate  05-01-2017
  */
 
 

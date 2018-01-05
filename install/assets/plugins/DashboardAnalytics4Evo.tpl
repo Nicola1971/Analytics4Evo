@@ -2,20 +2,20 @@
  * DashboardAnalytics4Evo 
  *
  * Dashboard Analytics widget plugin for Evolution CMS
- * @author    Nicola Lambathakis
+ *
+ * @author      Nicola Lambathakis http://www.tattoocms.it/
  * @category    plugin
- * @version    0.1
- * @license	   http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
+ * @version     0.1
+ * @license	    http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @events OnManagerWelcomeHome,OnManagerWelcomePrerender
  * @internal    @installset base
  * @internal    @modx_category Analytics
  * @internal    @disabled 1
- * @author      Nicola Lambathakis http://www.tattoocms.it/
+ * @internal    @properties &wdgVisibility=Show widget for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Run only for this role:;string;;;(role id) &ThisUser=Run only for this user:;string;;;(username) &wdgTitle= Analytics widget Title:;string;Analytics  &wdgicon= widget icon:;string;fa-bar-chart &wdgposition=widget position:;text;1 &wdgsizex=widget width:;list;12,6,4,3;12 &IDclient=ID client:;string;;;application ID client &ids=ids:;;;Table ID (ids) &sess_metrics=metrics:;list;sessions,users;sessions &sess_time=time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo
  * @documentation Requirements: This plugin requires Evolution 1.3.5 or later
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
  * @link        
  * @lastupdate  04/12/2017
- * @internal    @properties &wdgVisibility=Show widget for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Run only for this role:;string;;;(role id) &ThisUser=Run only for this user:;string;;;(username) &wdgTitle= Analytics widget Title:;string;Analytics  &wdgicon= widget icon:;string;fa-bar-chart &wdgposition=widget position:;text;1 &wdgsizex=widget width:;list;12,6,4,3;12 &IDclient=ID client:;string;;;application ID client &ids=ids:;;;Table ID (ids) &sess_metrics=metrics:;list;sessions,users;sessions &sess_time=time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo
 */
 
 // get manager role
