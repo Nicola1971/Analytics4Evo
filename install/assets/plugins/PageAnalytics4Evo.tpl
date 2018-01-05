@@ -96,7 +96,7 @@ div#month-users h1, div#month-views h1 {display:block; margin-top:14px; font-siz
 </div></div></div>
 
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> usersType </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> New / Returning Visitors </div> 
 <div class=\"card-block\">
   <div id=\"usersType\"></div>	
 </div></div></div>
