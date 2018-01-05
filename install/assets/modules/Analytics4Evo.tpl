@@ -4,7 +4,7 @@
  * Google Analytics for Evolution
  *
  * @category	module
- * @version     beta 0.1
+ * @version     beta 0.2
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Manager

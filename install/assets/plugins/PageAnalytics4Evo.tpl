@@ -5,7 +5,7 @@
  *
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @category	plugin
- * @version     beta 0.1
+ * @version     beta 0.2
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
