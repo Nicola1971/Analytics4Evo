@@ -4,12 +4,12 @@
  * Google Analytics for Evolution
  *
  * @category	module
- * @version     beta 0.2
+ * @version     beta 0.3
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Manager
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
- * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &cms=cms:;menu;modxevo,evolution;evolution
+ * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report :;menu;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;users &cms=cms:;menu;modxevo,evolution;evolution
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
@@ -45,8 +45,9 @@ $output .="
 </head>
 <body>
 <style>
-div#active-users, div#month-users {color:#499bea;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
-div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-top:14px; font-size: 5rem !important; font-weight:normal!important;}
+div#active-users, div#month-views {text-transform: capitalize;color:#499bea;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
+div#active-users .ActiveUsers-value {display:block; margin-top:14px; font-size: 5rem !important; font-weight:normal!important;}
+div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; font-weight:normal!important;}
 .container {padding-top:30px;}
 .google-visualization-table-page-numbers a, .google-visualization-table-page-numbers a.current, .google-visualization-table-page-next, .google-visualization-table-page-prev {padding:0 6px;font-size:1.2em;text-decoration:none;box-shadow:0;background:none!important;border:1px solid #dedede;color:#595959}
 .google-visualization-table-page-next, .google-visualization-table-page-prev {height:25px;background:none!important;border:1px solid #dedede;color:#595959;background-image:none!important;}
@@ -70,9 +71,9 @@ div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-t
 <div class=\"card-block\">
 <div id=\"active-users\"></div>	
 </div></div>
-<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days</div> 
+<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days $custNum_metrics</div> 
 <div class=\"card-block\">
-  <div id=\"month-users\"></div>
+  <div id=\"month-views\"></div>
 </div></div>
 </div>
 
@@ -129,21 +130,29 @@ gapi.analytics.ready(function() {
 	'ids': \"$ids\"
   });
 
-var monthUsers = new gapi.analytics.report.Data({
+//custom number report
+var monthViews = new gapi.analytics.report.Data({
  query: {
   'ids': \"$ids\",
-  'metrics': 'ga:users',
+  'metrics': 'ga:$custNum_metrics',
   'start-date': '30daysAgo',
   'end-date': 'yesterday'
 }
  });
-monthUsers.on('success', function(monthUsers) {
-for (var prop in monthUsers) {
-      var outputDiv = document.getElementById('month-users');
-      outputDiv.innerHTML = 'Users: <br/>' + '<h1>' + monthUsers[prop] +  '</h1>';  
+monthViews.on('success', function(monthViews) {
+for (var prop in monthViews) {
+      var outputDiv = document.getElementById('month-views');
+	  var jsonViews = JSON.stringify(monthViews[prop]);
+	  if (jsonViews !== '{\"ga:$custNum_metrics\":\"0\"}') {
+      outputDiv.innerHTML = '$custNum_metrics: ' + '<h1>' + monthViews[prop] +  '</h1>'; 
 	  }
-	console.log(monthUsers);
+		else {
+       outputDiv.innerHTML = '$custNum_metrics: ' + '<h1> 0 </h1>'; 
+        }
+	 }
+	 console.log(JSON.stringify(monthViews[prop]));
 });
+
 
   // widgetSessions: Create the timeline chart.
   var widgetSessions = new gapi.analytics.googleCharts.DataChart({
@@ -323,10 +332,10 @@ for (var prop in monthUsers) {
 	widgetReferring.execute();
 	widgetDevice.execute();
 	widgetSources.execute();
-	socialNetworks.execute();
-	activeUsers.execute();
+    activeUsers.execute();		
 	//settimeout to try to avoid GA rate limits
-      setTimeout(monthUsers.execute(),400);
+	setTimeout(socialNetworks.execute(),200);
+    setTimeout(monthViews.execute(),400);
   });
 
 });
