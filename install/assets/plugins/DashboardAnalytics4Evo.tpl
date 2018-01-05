@@ -15,7 +15,7 @@
  * @documentation Requirements: This plugin requires Evolution 1.3.5 or later
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
  * @link        
- * @lastupdate  04/12/2017
+ * @lastupdate  05/01/2017
 */
 
 // get manager role
@@ -41,13 +41,9 @@ if($modx->hasPermission('edit_plugin')) {
 $button_pl_config = '<a data-toggle="tooltip" href="javascript:;" title="' . $_lang["settings_config"] . '" class="text-muted pull-right" onclick="parent.modx.popup({url:\''. MODX_MANAGER_URL.'?a=102&id='.$pluginid.'&tab=1\',title1:\'' . $_lang["settings_config"] . '\',icon:\'fa-cog\',iframe:\'iframe\',selector2:\'#tabConfig\',position:\'center center\',width:\'80%\',height:\'80%\',hide:0,hover:0,overlay:1,overlayclose:1})" ><i class="fa fa-cog"></i> </a>';
 }
 $modx->setPlaceholder('button_pl_config', $button_pl_config);
-/*Widget Box */
-
 $WidgetOutput = ''.$modx->getChunk(''.$WidgetChunk.'').'';
-
 $e = &$modx->Event;
 switch($e->name){
-/*load styles with OnManagerWelcomePrerender*/
 case 'OnManagerWelcomePrerender':
 $cssOutput = "
 <script>
@@ -58,7 +54,6 @@ $cssOutput = "
   fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
 }(window,document,'script'));
 </script>
-
 <script src=\"../assets/modules/analytics4evo/moment.min.js\"></script>
 <script src=\"../assets/modules/analytics4evo/active-users.js\"></script>
 <script>
