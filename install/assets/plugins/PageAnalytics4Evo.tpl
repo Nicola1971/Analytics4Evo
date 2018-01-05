@@ -114,10 +114,6 @@ div#month-users h1, div#month-views h1 {display:block; margin-top:14px; font-siz
 <div class=\"card-block\">
   <div id=\"widgetReferres\"></div>	
 </div></div></div>
-
-</div>
-<div class=\"buttonConfig pull-right\" style=\"margin-right:8px;\">
-'.$button_config.'
 </div>
 </div>
 
