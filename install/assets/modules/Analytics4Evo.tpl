@@ -9,7 +9,7 @@
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Manager
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
- * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report :;menu;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;users &cms=cms:;menu;modxevo,evolution;evolution
+ * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report:;menu;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;users &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;country &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;GEO &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &custChart3_metrics=Custom chart 3 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart3_dimensions=Custom chart 3 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;medium &custChart3_Chart=Custom Chart3 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;menu;modxevo,evolution;evolution
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
@@ -81,9 +81,9 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 <div class=\"container\">
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div> <div class=\"card-block\" id=\"widgetVisitors\"></div></div></div>
 
-<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Countries </div> <div class=\"card-block\" id=\"widgetCountry\"></div></div></div>
-<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Devices </div> <div class=\"card-block\" id=\"widgetDevice\"></div></div></div>
-<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Sources </div> <div class=\"card-block\" id=\"widgetSources\"></div></div></div>
+<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_dimensions </div> <div class=\"card-block\" id=\"widgetcustChart1\"></div></div></div>
+<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_dimensions </div> <div class=\"card-block\" id=\"widgetcustChart2\"></div></div></div>
+<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart3_dimensions </div> <div class=\"card-block\" id=\"widgetcustChart3\"></div></div></div>
 
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Content </div> <div class=\"card-block\" id=\"widgetContent\"></div></div></div>
 <div class=\"col-md-6\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Referring </div> <div class=\"card-block\" id=\"widgetReferring\"></div></div></div>
@@ -153,7 +153,6 @@ for (var prop in monthViews) {
 	 console.log(JSON.stringify(monthViews[prop]));
 });
 
-
   // widgetSessions: Create the timeline chart.
   var widgetSessions = new gapi.analytics.googleCharts.DataChart({
     reportType: 'ga',
@@ -172,70 +171,70 @@ for (var prop in monthViews) {
         width: '100%'
       }
     }
-  });  
-  //pie
-  // widgetCountry: Create the timeline chart.
-  var widgetCountry = new gapi.analytics.googleCharts.DataChart({
+  }); 
+    // widgetcustChart1: Create the timeline chart. geo/pie
+  var widgetcustChart1 = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
     query: {
-      metrics: 'ga:sessions',
-      dimensions: 'ga:country',
+      metrics: 'ga:$custChart1_metrics',
+      dimensions: 'ga:$custChart1_dimensions',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 6,
-      sort: '-ga:sessions',
+      sort: '-ga:$custChart1_metrics',
      'ids': \"$ids\"
     },
     chart: {
-      container: 'widgetCountry',
-       type: 'GEO',
+      container: 'widgetcustChart1',
+       type: '$custChart1_Chart',
        options: {
-        width: '100%'
+        width: '100%',
+        pieHole: 4/9
       }
     }
   }); 
-  // widgetDevice: Create the timeline chart.
-  var widgetDevice = new gapi.analytics.googleCharts.DataChart({
-     reportType: 'ga',
+    // widgetcustChart2: Bouncerate. line
+  var widgetcustChart2 = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
     query: {
-      metrics: 'ga:sessions',
-      dimensions: 'ga:deviceCategory',
+      'metrics': 'ga:$custChart2_metrics',
+      'dimensions': 'ga:$custChart2_dimensions',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
-      'max-results': 6,
-      sort: '-ga:sessions',
-     'ids': \"$ids\"
+	  sort: '-ga:$custChart2_metrics',
+      'ids': \"$ids\"
     },
     chart: {
-      container: 'widgetDevice',
-      type: 'PIE',
+      type: '$custChart2_Chart',
+      container: 'widgetcustChart2',
       options: {
         width: '100%',
         pieHole: 4/9
       }
     }
-  });   
-   // widgetSources: Create the timeline chart.
-  var widgetSources = new gapi.analytics.googleCharts.DataChart({
+  });
+    // widgetcustChart3: Create the timeline chart. pie
+  var widgetcustChart3 = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
     query: {
-      metrics: 'ga:sessions',
-      dimensions: 'ga:medium',
+      metrics: 'ga:$custChart3_metrics',
+      dimensions: 'ga:$custChart3_dimensions',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 6,
-      sort: '-ga:sessions',
-     'ids': \"$ids\"
+       sort: '-ga:$custChart3_metrics',
+      'ids': \"$ids\"
     },
     chart: {
-      container: 'widgetSources',
-      type: 'PIE',
+      container: 'widgetcustChart3',
+      type: '$custChart3_Chart',
       options: {
         width: '100%',
         pieHole: 4/9
       }
     }
-  });  
+  });    
+ 
   //tables
     // widgetContent: Top Content
   var widgetContent = new gapi.analytics.googleCharts.DataChart({
@@ -326,12 +325,12 @@ for (var prop in monthViews) {
     //hide the auth-button
     document.querySelector(\"#auth-button\").style.display='none';  
     widgetSessions.execute();
-    widgetCountry.execute();
 	widgetVisitors.execute();
+	widgetcustChart1.execute();
+	widgetcustChart2.execute();
+	widgetcustChart3.execute();
 	widgetContent.execute();
 	widgetReferring.execute();
-	widgetDevice.execute();
-	widgetSources.execute();
     activeUsers.execute();		
 	//settimeout to try to avoid GA rate limits
 	setTimeout(socialNetworks.execute(),200);
