@@ -8,7 +8,7 @@
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Manager
- * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &cms=cmsn:;menu;modxevo,evolution;evolution
+ * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &cms=cms:;menu;modxevo,evolution;evolution
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 
@@ -49,6 +49,7 @@ div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-t
 .google-visualization-table-page-numbers a:hover{text-decoration:none;box-shadow:0!important;border:1px solid #499bea;}
 .google-visualization-table-div-page.gradient {background:transparent; padding-top:10px;}
 .gapi-analytics-data-chart {width:100%!important;}
+.card-header{text-transform: capitalize;}
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Analytics 4 Evo</h1>
@@ -56,7 +57,7 @@ div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-t
 
 <div class=\"container\">
 <div class=\"col-md-9\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Sessions </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
 <div class=\"card-block\">
   <div id=\"widgetSessions\"></div>	
 </div></div></div>
@@ -148,8 +149,8 @@ for (var prop in monthUsers) {
     reportType: 'ga',
     query: {
       'dimensions': 'ga:date',
-      'metrics': 'ga:sessions',
-      'start-date': '30daysAgo',
+      'metrics': 'ga:$sess_metrics',
+      'start-date': '$sess_time',
       'end-date': 'yesterday',
 	  'max-results': 30,
      'ids': \"$ids\"
