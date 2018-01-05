@@ -119,11 +119,8 @@ gapi.analytics.ready(function() {
     userInfoLabel:\"\"
   });
   
-  /**
-   * Create a new ActiveUsers instance to be rendered inside of an
-   * element with the id \"active-users-container\" and poll for changes every
-   * five seconds.
-   */
+  //Create a new ActiveUsers instance to be rendered inside of an element with the id \"active-users-container\" 
+  //and poll for changes every five seconds.
  var activeUsers = new gapi.analytics.ext.ActiveUsers({
     container: 'active-users',
 	filters: null,
