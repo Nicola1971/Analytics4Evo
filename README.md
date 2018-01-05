@@ -1,6 +1,8 @@
 # Analytics4Evo beta 0.1
 Google Analytics for Evolution CMS
 
+![analytics4evo-logo](https://user-images.githubusercontent.com/7342798/34605431-e8a8a910-f20b-11e7-8cdc-786160c5e7fe.png)
+
 The package includes:
 
 * **Analytics4Evo** Module: site Analytics reports overview
