@@ -41,6 +41,6 @@ Actually, server-side authorization and OAuth 2.0 are not supported.
 
 # To Do
 
-* better reponsive charts (maybe move to another chart library)
+* better responsive charts (maybe move to another chart library)
 * server-side authorization / OAuth 2.0 (rewrite with php api (?))
 
