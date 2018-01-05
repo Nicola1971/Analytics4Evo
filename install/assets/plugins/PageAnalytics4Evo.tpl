@@ -8,12 +8,24 @@
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
- * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &cms=cms:;list;modxevo,evolution;evolution
+ * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &cms=cms:;list;modxevo,evolution;evolution
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 
-if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
-
+// get manager role
+$internalKey = $modx->getLoginUserID();
+$sid = $modx->sid;
+$role = $_SESSION['mgrRole'];
+$user = $_SESSION['mgrShortname'];
+// show widget only to Admin role 1
+if(($role!=1) AND ($wdgVisibility == 'AdminOnly')) {}
+// show widget to all manager users excluded Admin role 1
+else if(($role==1) AND ($wdgVisibility == 'AdminExcluded')) {}
+// show widget only to "this" role id
+else if(($role!=$ThisRole) AND ($wdgVisibility == 'ThisRoleOnly')) {}
+// show widget only to "this" username
+else if(($user!=$ThisUser) AND ($wdgVisibility == 'ThisUserOnly')) {}
+else {
 // get global language
 global $modx,$_lang;
 $id = isset($_REQUEST['id']) ? intval($_REQUEST['id']) : 0;
@@ -24,44 +36,46 @@ switch($e->name) {
 case 'OnDocFormRender':
 
 $output ="";
-if ($cms == 'evolution') { 
+if ($cms == 'modxevo') { 
+$output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
+}
+else {
 $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"media/style/".$modx->config['manager_theme']."/style.css\">";  
 }
-else { 
-$output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
-$output .="	<style>.gapi-analytics-data-chart .gapi-analytics-data-chart-styles-table-th  {background:#FFF!important;}</style>";  
-}
+
 $output .="
 <div class=\"tab-page\" id=\"tabAnalytics\">
 <h2 class=\"tab\">Analytics</h2>
 <style>
-div#active-users, div#month-users {color:#499bea;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
-div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-top:14px; font-size: 5rem !important; font-weight:normal!important;}
+div#month-users, div#month-views {color:#499bea;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
+div#month-users h1, div#month-views h1 {display:block; margin-top:14px; font-size: 5rem !important;}
 .container {padding-top:30px;}
 .google-visualization-table-page-numbers a, .google-visualization-table-page-numbers a.current, .google-visualization-table-page-next, .google-visualization-table-page-prev {padding:0 6px;font-size:1.2em;text-decoration:none;box-shadow:0;background:none!important;border:1px solid #dedede;color:#595959}
 .google-visualization-table-page-next, .google-visualization-table-page-prev {height:25px;background:none!important;border:1px solid #dedede;color:#595959;background-image:none!important;}
 .google-visualization-table-page-numbers a:hover{text-decoration:none;box-shadow:0!important;border:1px solid #499bea;}
 .google-visualization-table-div-page.gradient {background:transparent; padding-top:10px;}
 .gapi-analytics-data-chart {width:100%!important;}
+.card-header{text-transform: capitalize;}
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
 <div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
 
+
 <div class=\"container\">
 <div class=\"col-md-9\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Sessions </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
 <div class=\"card-block\">
-  <div id=\"widgetSessions\"></div>	
+  <div style='width:100%;' id=\"widgetSessions\"></div>	
 </div></div></div>
 
-<div class=\"col-md-3\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Right now </div> 
+<div class=\"col-md-3\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days Users </div> 
 <div class=\"card-block\">
-<div id=\"active-users\"></div>	
+<div id=\"month-users\"></div>
 </div></div>
-<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days</div> 
+<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days views</div> 
 <div class=\"card-block\">
-  <div id=\"month-users\"></div>
+<div id=\"month-views\"></div>
 </div></div>
 </div>
 
@@ -72,16 +86,17 @@ div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-t
 </div></div></div>
 
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Previous Page </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Previuous Page </div> 
 <div class=\"card-block\">
   <div id=\"widgetPrevPage\"></div>	
 </div></div></div>
 
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Users </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> usersType </div> 
 <div class=\"card-block\">
   <div id=\"usersType\"></div>	
 </div></div></div>
+
 <div class=\"clearfix\"></div>
 
 <div class=\"col-md-6\"><div class=\"card\">
@@ -91,7 +106,7 @@ div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-t
 </div></div></div>
 
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Referrers </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Referres </div> 
 <div class=\"card-block\">
   <div id=\"widgetReferres\"></div>	
 </div></div></div>
@@ -103,6 +118,7 @@ div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-t
 </div>
 
 <!-- Load the library. -->
+
 <script>
 (function(w,d,s,g,js,fjs){
   g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
@@ -111,6 +127,7 @@ div#active-users .ActiveUsers-value, div#month-users h1 {display:block; margin-t
   fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
 }(window,document,'script'));
 </script>
+
 <script src=\"../assets/modules/analytics4evo/moment.min.js\"></script>
 <script src=\"../assets/modules/analytics4evo/active-users.js\"></script>
 ";  
@@ -125,14 +142,7 @@ gapi.analytics.ready(function() {
     clientid: CLIENT_ID,
     userInfoLabel:\"\"
   });
- var activeUsers = new gapi.analytics.ext.ActiveUsers({
-    container: 'active-users',
-	filters: 'ga:pagePath==$url',
-	template: '<div class=\"ActiveUsers\">' + 'Right Now: <br/><h1><b class=\"ActiveUsers-value\"></b></h1>' +  '</div>',
-    pollingInterval: 5,
-	'ids': \"$ids\"
-  });
-
+  
 var monthUsers = new gapi.analytics.report.Data({
  query: {
   'ids': \"$ids\",
@@ -149,14 +159,30 @@ for (var prop in monthUsers) {
 	  }
 	console.log(monthUsers);
 });
+var monthViews = new gapi.analytics.report.Data({
+ query: {
+  'ids': \"$ids\",
+  'filters': 'ga:pagePath==$url',
+  'metrics': 'ga:pageviews',
+  'start-date': '30daysAgo',
+  'end-date': 'yesterday'
+}
+ });
+monthViews.on('success', function(monthViews) {
+for (var prop in monthViews) {
+      var outputDiv = document.getElementById('month-views');
+      outputDiv.innerHTML = 'Pageviews: ' + '<h1>' + monthViews[prop] +  '</h1>'; 
+	  }
+	console.log(monthViews);
+});
 
   // widgetSessions: Create the timeline chart.
   var widgetSessions = new gapi.analytics.googleCharts.DataChart({
     reportType: 'ga',
     query: {
       'dimensions': 'ga:date',
-      'metrics': 'ga:sessions',
-      'start-date': '30daysAgo',
+      'metrics': 'ga:$sess_metrics',
+      'start-date': '$sess_time',
       'end-date': 'yesterday',
 	  'max-results': 30,
 	  'filters': 'ga:pagePath==$url',
@@ -179,8 +205,7 @@ for (var prop in monthUsers) {
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 30,
-	  'filters': 'ga:pagePath==$url',
-      sort: '-ga:date',
+      sort: '-ga:users',
      'ids': \"$ids\"
     },
     chart: {
@@ -296,15 +321,16 @@ for (var prop in monthUsers) {
 	widgetReferres.execute();
 	widgetPrevPage.execute();
 	monthUsers.execute();
-	activeUsers.execute();
+	monthViews.execute();
   });
 
 });
 </script>
 ";  
 $output .="
-</div></div>";
+</div></div>	";
     break;
 }
 $e->output($output);
 return;
+}
