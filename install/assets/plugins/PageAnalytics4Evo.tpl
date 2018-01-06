@@ -67,21 +67,19 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 .google-visualization-table-div-page.gradient {background:transparent; padding-top:10px;}
 .gapi-analytics-data-chart {width:100%!important;}
 .card-header{text-transform: capitalize;}
+.widgets {padding:0!important;}
 .widgets .card-block {padding:0 10px!important;}
 .widgets .container { padding-left: 0!important; padding-right: 0!important; width: 100% }
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
 <div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
-
-
 <div class=\"container\">
 <div class=\"col-md-9\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
 <div class=\"card-block\">
 <div style='width:100%;' id=\"widgetSessions\"></div>	
 </div></div></div>
-
 <div class=\"col-md-3\">
 <div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Right Now</div> 
 <div class=\"card-block\">
