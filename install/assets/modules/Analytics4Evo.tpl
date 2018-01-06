@@ -47,7 +47,7 @@ $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"media/style/".$modx
 
 $output .="
 </head>
-<body>
+<body class=\"widgets\">
 <style>
 div#active-users, div#month-views {text-transform: capitalize;color:#499bea;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
 div#active-users .ActiveUsers-value {display:block; margin-top:14px; font-size: 5rem !important; font-weight:normal!important;}
@@ -59,6 +59,7 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 .google-visualization-table-div-page.gradient {background:transparent; padding-top:10px;}
 .gapi-analytics-data-chart {width:100%!important;}
 .card-header{text-transform: capitalize;}
+.widgets .card-block {padding:0 10px!important;}
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Analytics 4 Evo</h1>

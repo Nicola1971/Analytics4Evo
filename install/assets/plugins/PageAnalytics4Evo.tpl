@@ -54,7 +54,7 @@ if ($cms == 'modxevo') {
 $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
 }
 $output .="
-<div class=\"tab-page\" id=\"tabAnalytics\">
+<div class=\"tab-page widgets\" id=\"tabAnalytics\">
 <h2 class=\"tab\">Analytics</h2>
 <style>
 div#active-users, div#month-views {text-transform: capitalize;color:#499bea;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
@@ -67,6 +67,7 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 .google-visualization-table-div-page.gradient {background:transparent; padding-top:10px;}
 .gapi-analytics-data-chart {width:100%!important;}
 .card-header{text-transform: capitalize;}
+.widgets .card-block {padding:0 10px!important;}
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
