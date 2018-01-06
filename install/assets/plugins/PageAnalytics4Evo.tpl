@@ -68,6 +68,7 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 .gapi-analytics-data-chart {width:100%!important;}
 .card-header{text-transform: capitalize;}
 .widgets .card-block {padding:0 10px!important;}
+.widgets .container { padding-left: 0!important; padding-right: 0!important; width: 100% }
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>

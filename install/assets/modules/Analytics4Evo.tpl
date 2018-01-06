@@ -60,6 +60,7 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 .gapi-analytics-data-chart {width:100%!important;}
 .card-header{text-transform: capitalize;}
 .widgets .card-block {padding:0 10px!important;}
+.container { padding-left: 0.50rem; padding-right: 0.50rem; width: 100% }
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Analytics 4 Evo</h1>
