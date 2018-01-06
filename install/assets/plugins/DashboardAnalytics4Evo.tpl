@@ -5,17 +5,17 @@
  *
  * @author      Nicola Lambathakis http://www.tattoocms.it/
  * @category    plugin
- * @version     0.2
+ * @version     RC1
  * @license	    http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @events OnManagerWelcomeHome,OnManagerWelcomePrerender
  * @internal    @installset base
  * @internal    @modx_category Analytics
  * @internal    @disabled 1
- * @internal    @properties &wdgVisibility=Show widget for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Run only for this role:;string;;;(role id) &ThisUser=Run only for this user:;string;;;(username) &wdgTitle= Analytics widget Title:;string;Analytics  &wdgicon= widget icon:;string;fa-bar-chart &wdgposition=widget position:;text;1 &wdgsizex=widget width:;list;12,6,4,3;12 &IDclient=ID client:;string;;;application ID client &ids=ids:;;;Table ID (ids) &sess_metrics=metrics:;list;sessions,users;sessions &sess_time=time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo
+ * @internal    @properties &wdgVisibility=Show widget for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Run only for this role:;string;;;(role id) &ThisUser=Run only for this user:;string;;;(username) &wdgTitle= Analytics widget Title:;string;Analytics  &wdgicon= widget icon:;string;fa-bar-chart &wdgposition=widget position:;text;1 &wdgsizex=widget width:;list;12,6,4,3;12 &IDclient=ID client:;string;;;application ID client &ids=ids:;;;Table ID (ids) &sess_metrics=metrics:;list;sessions,users;sessions &sess_time=time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &rightNow=Realtime Users Title:;string;Right Now
  * @documentation Requirements: This plugin requires Evolution 1.3.5 or later
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
  * @link        
- * @lastupdate  05/01/2017
+ * @lastupdate  06/01/2017
 */
 
 // get manager role
@@ -68,7 +68,7 @@ gapi.analytics.ready(function() {
    var activeUsers = new gapi.analytics.ext.ActiveUsers({
     container: 'active-users',
 	filters: null,
-	template: '<div class=\"ActiveUsers\">' + 'Right Now <br/><h1><b class=\"ActiveUsers-value\"></b></h1>' +  '</div>',
+	template: '<div class=\"ActiveUsers\">' + '$rightNow <br/><h1><b class=\"ActiveUsers-value\"></b></h1>' +  '</div>',
     pollingInterval: 5,
 	'ids': \"$ids\"
   });

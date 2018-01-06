@@ -4,12 +4,12 @@
  * Google Analytics for Evolution
  *
  * @category	module
- * @version     beta 0.3
+ * @version     RC1
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Manager
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
- * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report:;menu;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;users &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;country &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;GEO &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &custChart3_metrics=Custom chart 3 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart3_dimensions=Custom chart 3 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;medium &custChart3_Chart=Custom Chart3 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;menu;modxevo,evolution;evolution
+ * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report:;menu;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;users &custChart1_title= Custom chart 1 Title:;string; &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;country &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;GEO &custChart2_title= Custom chart 2 Title:;string; &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &custChart3_title= Custom chart 3 Title:;string; &custChart3_metrics=Custom chart 3 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart3_dimensions=Custom chart 3 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;medium &custChart3_Chart=Custom Chart3 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;menu;modxevo,evolution;evolution
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
@@ -18,7 +18,7 @@
 
 
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
-
+$version = 'RC1';
 // get global language
 global $modx,$_lang;
 //config button
@@ -26,6 +26,10 @@ $module_id = (!empty($_REQUEST["id"])) ? (int)$_REQUEST["id"] : $yourModuleId;
 if($modx->hasPermission('edit_module')) {
 $button_config = '<a title="' . $_lang["settings_config"] . '" href="index.php?a=108&id='.$module_id.'" class="btn btn-sm btn-secondary" ><i class="fa fa-cog"></i> ' . $_lang["settings_config"] . '</a>';
 }
+
+$custChart1_title = isset($custChart1_title) ? $custChart1_title : $custChart1_dimensions;
+$custChart2_title = isset($custChart2_title) ? $custChart2_title : $custChart2_dimensions;
+$custChart3_title = isset($custChart3_title) ? $custChart3_title : $custChart3_dimensions;
 
 $output ="";
 $output .="
@@ -59,42 +63,38 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Analytics 4 Evo</h1>
 <div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
-
 <div class=\"container\">
 <div class=\"col-md-9\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
 <div class=\"card-block\">
-  <div id=\"widgetSessions\"></div>	
+<div id=\"widgetSessions\"></div>	
 </div></div></div>
-
 <div class=\"col-md-3\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Right now </div> 
 <div class=\"card-block\">
 <div id=\"active-users\"></div>	
 </div></div>
 <div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days $custNum_metrics</div> 
 <div class=\"card-block\">
-  <div id=\"month-views\"></div>
+<div id=\"month-views\"></div>
 </div></div>
 </div>
-
 </div>
 <div class=\"container\">
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div> <div class=\"card-block\" id=\"widgetVisitors\"></div></div></div>
-
-<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_dimensions </div> <div class=\"card-block\" id=\"widgetcustChart1\"></div></div></div>
-<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_dimensions </div> <div class=\"card-block\" id=\"widgetcustChart2\"></div></div></div>
-<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart3_dimensions </div> <div class=\"card-block\" id=\"widgetcustChart3\"></div></div></div>
-
+<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_title </div> <div class=\"card-block\" id=\"widgetcustChart1\"></div></div></div>
+<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_title </div> <div class=\"card-block\" id=\"widgetcustChart2\"></div></div></div>
+<div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart3_title </div> <div class=\"card-block\" id=\"widgetcustChart3\"></div></div></div>
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Content </div> <div class=\"card-block\" id=\"widgetContent\"></div></div></div>
 <div class=\"col-md-6\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Referring </div> <div class=\"card-block\" id=\"widgetReferring\"></div></div></div>
-
 <div class=\"col-md-6\"><div class=\"card\" data-stateful=\"true\" data-inner-id=\"top\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Social Network </div> <div class=\"card-block\" id=\"socialNetworks\"></div></div></div>
-
-<div class=\"buttonConfig pull-right\" style=\"margin-right:8px;\">
-$button_config
+<div class=\"clearfix\"></div>
+<div class=\"pull-left\" style=\"margin-left:12px;\">
+<span class=\"text-muted\"><i class=\"fa fa-bar-chart\"></i> Analytics4Evo $version</span>
+  </div>
+<div class=\"buttonConfig pull-right\" style=\"margin-right:12px;\">
+ $button_config
+  </div>
 </div>
-</div>
-
 <!-- Load the library. -->
 <script>
 (function(w,d,s,g,js,fjs){
@@ -107,8 +107,7 @@ $button_config
 <script src=\"media/script/jquery/jquery.min.js\"></script>
 <script src=\"../assets/modules/analytics4evo/moment.min.js\"></script>
 <script src=\"../assets/modules/analytics4evo/active-users.js\"></script>
-";  
-
+"; 
 $output .="
 <script>
 gapi.analytics.ready(function() {
@@ -118,8 +117,7 @@ gapi.analytics.ready(function() {
     container: 'auth-button',
     clientid: CLIENT_ID,
     userInfoLabel:\"\"
-  });
-  
+  });  
   //Create a new ActiveUsers instance to be rendered inside of an element with the id \"active-users-container\" 
   //and poll for changes every five seconds.
  var activeUsers = new gapi.analytics.ext.ActiveUsers({
@@ -129,7 +127,6 @@ gapi.analytics.ready(function() {
     pollingInterval: 5,
 	'ids': \"$ids\"
   });
-
 //custom number report
 var monthViews = new gapi.analytics.report.Data({
  query: {
@@ -152,8 +149,7 @@ for (var prop in monthViews) {
 	 }
 	 console.log(JSON.stringify(monthViews[prop]));
 });
-
-  // widgetSessions: Create the timeline chart.
+  // widgetSessions
   var widgetSessions = new gapi.analytics.googleCharts.DataChart({
     reportType: 'ga',
     query: {
@@ -172,7 +168,7 @@ for (var prop in monthViews) {
       }
     }
   }); 
-    // widgetcustChart1: Create the timeline chart. geo/pie
+    // widgetcustChart1
   var widgetcustChart1 = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
     query: {
@@ -193,7 +189,7 @@ for (var prop in monthViews) {
       }
     }
   }); 
-    // widgetcustChart2: Bouncerate. line
+    // widgetcustChart2
   var widgetcustChart2 = new gapi.analytics.googleCharts.DataChart({
     reportType: 'ga',
     query: {
@@ -213,7 +209,7 @@ for (var prop in monthViews) {
       }
     }
   });
-    // widgetcustChart3: Create the timeline chart. pie
+    // widgetcustChart3
   var widgetcustChart3 = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
     query: {
@@ -222,7 +218,7 @@ for (var prop in monthViews) {
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 6,
-       sort: '-ga:$custChart3_metrics',
+      // sort: '-ga:$custChart3_metrics',
       'ids': \"$ids\"
     },
     chart: {
@@ -234,8 +230,6 @@ for (var prop in monthViews) {
       }
     }
   });    
- 
-  //tables
     // widgetContent: Top Content
   var widgetContent = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',

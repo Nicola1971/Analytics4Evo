@@ -5,17 +5,18 @@
  *
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @category	plugin
- * @version     beta 0.3
+ * @version     RC1
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
- * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report :;list;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;pageviews &custLine_metrics=Custom LINE chart :;list;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;bounceRate &custPie_dimensions=Custom PIE chart :;list;deviceCategory,country,browser,operatingSystem,userType,socialNetwork;deviceCategory &cms=cms:;list;modxevo,evolution;evolution
+ * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report :;list;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;pageviews &custChart1_title= Custom chart 1 Title:;string;Bounce Rate &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;bounceRate &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;date &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;LINE &custChart2_title= Custom chart 2 Title:;string; &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;list;modxevo,evolution;evolution
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
- * @lastupdate  05-01-2017
+ * @lastupdate  06-01-2017
  */
 
+$version = 'RC1';
 // get manager role
 $internalKey = $modx->getLoginUserID();
 $sid = $modx->sid;
@@ -41,7 +42,8 @@ if($modx->hasPermission('edit_plugin')) {
 $button_pl_config = '<a data-toggle="tooltip" href="javascript:;" title="' . $_lang["settings_config"] . '" class="btn btn-sm btn-secondary text-muted pull-right" onclick="parent.modx.popup({url:\''. MODX_MANAGER_URL.'?a=102&id='.$pluginid.'&tab=1\',title1:\'' . $_lang["settings_config"] . '\',icon:\'fa-cog\',iframe:\'iframe\',selector2:\'#tabConfig\',position:\'center center\',width:\'80%\',height:\'80%\',hide:0,hover:0,overlay:1,overlayclose:1})" ><i class="fa fa-cog"></i> ' . $_lang["settings_config"] . '</a>';
 }
 $modx->setPlaceholder('button_pl_config', $button_pl_config);
-	
+$custChart1_title = isset($custChart1_title) ? $custChart1_title : $custChart1_dimensions;
+$custChart2_title = isset($custChart2_title) ? $custChart2_title : $custChart2_dimensions;
 $e = &$modx->Event;
 $output ='';
 switch($e->name) {
@@ -90,14 +92,14 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 </div>
 <div class=\"clearfix\"></div>
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custLine_metrics </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_title </div> 
 <div class=\"card-block\">
-  <div id=\"widgetBouncerate\"></div>	
+  <div id=\"widgetcustChart1\"></div>	
 </div></div></div>
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custPie_dimensions </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_title </div> 
 <div class=\"card-block\">
-  <div id=\"widgetDevice\"></div>	
+  <div id=\"widgetcustChart2\"></div>	
 </div></div></div>
 <div class=\"col-md-12\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div> 
@@ -122,8 +124,11 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 <div class=\"card-block\">
   <div id=\"widgetReferres\"></div>	
 </div></div></div>
-
-<div class=\"buttonConfig pull-right clearfix\" style=\"margin-right:8px;\">
+<div class=\"clearfix\"></div>
+<div class=\"buttonConfig pull-left\" style=\"margin-left:12px;\">
+<span class=\"text-muted\"><i class=\"fa fa-bar-chart\"></i> PageAnalytics4Evo $version</span>
+  </div>
+<div class=\"buttonConfig pull-right\" style=\"margin-right:12px;\">
  $button_pl_config
   </div>
 </div>
@@ -216,6 +221,7 @@ for (var prop in monthViews) {
       'end-date': 'yesterday',
       'max-results': 30,
       sort: '-ga:users',
+	  'filters': 'ga:pagePath==$url',
      'ids': \"$ids\"
     },
     chart: {
@@ -275,7 +281,7 @@ for (var prop in monthViews) {
       }
     }
   });
-      // widgetPrevPage: widgetPrevPage.
+      // widgetPrevPage: PrevPage.
   var widgetPrevPage = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
     query: {
@@ -299,58 +305,60 @@ for (var prop in monthViews) {
     }
   });
 
-    // widgetBouncerate: Bouncerate.
-  var widgetBouncerate = new gapi.analytics.googleCharts.DataChart({
-    reportType: 'ga',
-    query: {
-      'dimensions': 'ga:date',
-      'metrics': 'ga:$custLine_metrics',
-      'start-date': '30daysAgo',
-      'end-date': 'yesterday',
-	  'filters': 'ga:pagePath==$url',
-     'ids': \"$ids\"
-    },
-    chart: {
-      type: 'LINE',
-      container: 'widgetBouncerate',
-      options: {
-        width: '100%'
-      }
-    }
-  });
-    // widgetDevice: Create the timeline chart.
-  var widgetDevice = new gapi.analytics.googleCharts.DataChart({
+    // widgetcustChart1
+  var widgetcustChart1 = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
     query: {
-      metrics: 'ga:sessions',
-      dimensions: 'ga:$custPie_dimensions',
+      metrics: 'ga:$custChart1_metrics',
+      dimensions: 'ga:$custChart1_dimensions',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
-      'max-results': 6,
-      sort: '-ga:sessions',
+      'max-results': 10,
 	  'filters': 'ga:pagePath==$url',
+     // sort: '-ga:$custChart1_metrics',
      'ids': \"$ids\"
     },
     chart: {
-      container: 'widgetDevice',
-      type: 'PIE',
-      options: {
+      container: 'widgetcustChart1',
+       type: '$custChart1_Chart',
+       options: {
         width: '100%',
         pieHole: 4/9
       }
     }
   }); 
+    // widgetcustChart2
+  var widgetcustChart2 = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
+    query: {
+      'metrics': 'ga:$custChart2_metrics',
+      'dimensions': 'ga:$custChart2_dimensions',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday',
+	  'filters': 'ga:pagePath==$url',
+	   sort: '-ga:$custChart2_metrics',
+      'ids': \"$ids\"
+    },
+    chart: {
+      type: '$custChart2_Chart',
+      container: 'widgetcustChart2',
+      options: {
+        width: '100%',
+        pieHole: 4/9
+      }
+    }
+  });
   gapi.analytics.auth.on('success', function(response) {
     //hide the auth-button
     document.querySelector(\"#auth-button\").style.display='none';  
     widgetSessions.execute();
 	widgetVisitors.execute();
 	widgetKeywords.execute();
-	widgetReferres.execute();
 	widgetPrevPage.execute();
 	activeUsers.execute();	
-	widgetBouncerate.execute();
-    setTimeout(widgetDevice.execute(),200);
+	widgetcustChart1.execute();
+	widgetcustChart2.execute();
+    setTimeout(widgetReferres.execute(),200);
 	//settimeout to try to avoid GA rate limits
     setTimeout(monthViews.execute(),400);
   });
