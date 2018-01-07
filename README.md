@@ -8,6 +8,7 @@ Module, Plugin and widget
 **Important**: This package is based on [Google Analytics Embed API](https://ga-dev-tools.appspot.com/embed-api/) JavaScript library and use **Google Sign-In**. 
 
 Before users can view their account information on the Google Analytics web site, they must first log in to their Google Accounts
+
 Actually, server-side authorization and OAuth 2.0 are not supported.
 
 # **Analytics4Evo** package includes:
