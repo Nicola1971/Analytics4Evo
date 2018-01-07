@@ -9,6 +9,8 @@ The package includes:
 * **PageAnalytics4Evo** Plugin: resource/page Analytics reports
 * **DashboardAnalytics4Evo** Plugin: Dashboard widget **(require evo 1.3/1.4)**
 
+![module-full](https://user-images.githubusercontent.com/7342798/34653635-1c6536ee-f3ef-11e7-8446-f60d38afcfee.png)
+
 NOTE 1 : this package is developed for Evolution cms 1.3/1.4
 To work with 1.2 release you need to set to "modxevo" the "cms" option in module and plugin settings.
 
@@ -18,13 +20,13 @@ Before users can view their account information on the Google Analytics web site
 Actually, server-side authorization and OAuth 2.0 are not supported.
 
 # DashboardAnalytics4Evo (dashboard widget)
-![widget](https://user-images.githubusercontent.com/7342798/34579224-629bbd36-f188-11e7-8d9d-57c90b4aa110.png)
+![widget](https://user-images.githubusercontent.com/7342798/34653646-3a073c56-f3ef-11e7-9c45-4cad6a41b47a.png)
 
 # Analytics4Evo (module)
-![module](https://user-images.githubusercontent.com/7342798/34579228-64e4837a-f188-11e7-8717-3d8cf15d8f5c.png)
+![mod](https://user-images.githubusercontent.com/7342798/34653642-2f822ef8-f3ef-11e7-9fd1-d01111565345.png)
 
 # PageAnalytics4Evo (plugin)
-![pageanalytics](https://user-images.githubusercontent.com/7342798/34579232-67087d00-f188-11e7-92f9-e2d82d2926cd.png)
+![plugin](https://user-images.githubusercontent.com/7342798/34653651-4421d9d0-f3ef-11e7-882c-041ea99a7540.png)
 
 ## How to allow access to analytics from your site
 
