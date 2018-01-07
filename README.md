@@ -25,7 +25,7 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 
 
 # DashboardAnalytics4Evo (dashboard widget)
-![widget](https://user-images.githubusercontent.com/7342798/34653646-3a073c56-f3ef-11e7-9c45-4cad6a41b47a.png)
+![widget-rc1](https://user-images.githubusercontent.com/7342798/34653742-8f5d23a4-f3f0-11e7-9d7a-b85a5078cc4a.png)
 
 # Analytics4Evo (module)
 ![mod](https://user-images.githubusercontent.com/7342798/34653642-2f822ef8-f3ef-11e7-9fd1-d01111565345.png)
