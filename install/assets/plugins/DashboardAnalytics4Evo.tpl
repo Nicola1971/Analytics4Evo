@@ -15,7 +15,7 @@
  * @documentation Requirements: This plugin requires Evolution 1.3.5 or later
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
  * @link        
- * @lastupdate  06/01/2017
+ * @lastupdate  07/01/2017
 */
 
 // get manager role
@@ -102,8 +102,8 @@ gapi.analytics.ready(function() {
 });
 </script> 
 <style>
-div#active-users {color:#499bea;display:block;margin:0;text-align:center;vertical-align:middle;}
-div#active-users .ActiveUsers-value {display:block; margin-top:3px; font-size: 3rem !important; font-weight:normal!important;}
+div#active-users {color:#058DC7;display:block;margin:0;text-align:center;vertical-align:middle;}
+div#active-users .ActiveUsers-value {color:#ff9900; display:block; margin-top:3px; font-size: 3rem !important; font-weight:normal!important;}
 </style>
 <div id=\"auth-button\"></div>
 ";

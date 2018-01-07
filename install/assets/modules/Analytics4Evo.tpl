@@ -48,9 +48,9 @@ $output .="
 </head>
 <body class=\"widgets\">
 <style>
-div#active-users, div#month-views {text-transform: capitalize;color:#499bea;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
-div#active-users .ActiveUsers-value {display:block; margin-top:14px; font-size: 5rem !important; font-weight:normal!important;}
-div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; font-weight:normal!important;}
+div#active-users, div#month-views {text-transform: capitalize;color:#058DC7;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
+div#active-users .ActiveUsers-value {color:#ff9900; display:block; margin-top:14px; font-size: 5rem !important; font-weight:normal!important;}
+div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3rem !important; font-weight:normal!important;}
 .container {padding-top:30px;}
 .google-visualization-table-page-numbers a, .google-visualization-table-page-numbers a.current, .google-visualization-table-page-next, .google-visualization-table-page-prev {padding:0 6px;font-size:1.2em;text-decoration:none;box-shadow:0;background:none!important;border:1px solid #dedede;color:#595959}
 .google-visualization-table-page-next, .google-visualization-table-page-prev {height:25px;background:none!important;border:1px solid #dedede;color:#595959;background-image:none!important;}
