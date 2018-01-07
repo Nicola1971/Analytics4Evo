@@ -1,15 +1,14 @@
 # Analytics4Evo RC1
 Google Analytics for Evolution CMS
 Module, Plugin and widget
+![analytics4evo-logo](https://user-images.githubusercontent.com/7342798/34605431-e8a8a910-f20b-11e7-8cdc-786160c5e7fe.png)
 
 **Important**: This package is based on [Google Analytics Embed API](https://ga-dev-tools.appspot.com/embed-api/) JavaScript library and use **Google Sign-In**. 
 
 Before users can view their account information on the Google Analytics web site, they must first log in to their Google Accounts
 Actually, server-side authorization and OAuth 2.0 are not supported.
 
-![analytics4evo-logo](https://user-images.githubusercontent.com/7342798/34605431-e8a8a910-f20b-11e7-8cdc-786160c5e7fe.png)
-
-## **Analytics4Evo** package includes:
+# **Analytics4Evo** package includes:
 
 * **Analytics4Evo** Module: site Analytics reports overview
 * **PageAnalytics4Evo** Plugin: resource/page Analytics reports
