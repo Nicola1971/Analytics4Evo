@@ -82,10 +82,10 @@ div#month-views h1 {display:block; margin-top:14px; font-size: 3rem !important; 
 </div>
 </div>
 <div class=\"container\">
-<div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div> <div class=\"card-block\" id=\"widgetVisitors\"></div></div></div>
 <div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_title </div> <div class=\"card-block\" id=\"widgetcustChart1\"></div></div></div>
 <div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_title </div> <div class=\"card-block\" id=\"widgetcustChart2\"></div></div></div>
 <div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart3_title </div> <div class=\"card-block\" id=\"widgetcustChart3\"></div></div></div>
+<div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div> <div class=\"card-block\" id=\"widgetVisitors\"></div></div></div>
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Content </div> <div class=\"card-block\" id=\"widgetContent\"></div></div></div>
 <div class=\"col-md-6\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Referring </div> <div class=\"card-block\" id=\"widgetReferring\"></div></div></div>
 <div class=\"col-md-6\"><div class=\"card\" data-stateful=\"true\" data-inner-id=\"top\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Social Network </div> <div class=\"card-block\" id=\"socialNetworks\"></div></div></div>
