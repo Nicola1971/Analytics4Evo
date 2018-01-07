@@ -9,11 +9,11 @@
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
- * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report :;list;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;pageviews &custChart1_title= Custom chart 1 Title:;string;Bounce Rate &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;bounceRate &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;date &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;LINE &custChart2_title= Custom chart 2 Title:;string; &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;list;modxevo,evolution;evolution
+ * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report :;list;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;pageviews &custChart1_title= Custom chart 1 Title:;string;Bounce Rate &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;bounceRate &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;date &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;LINE &custChart2_title= Custom chart 2 Title:;string; &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;list;modxevo,evolution;evolution
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
- * @lastupdate  06-01-2017
+ * @lastupdate  07-01-2017
  */
 
 $version = 'RC1';
@@ -313,9 +313,9 @@ for (var prop in monthViews) {
       dimensions: 'ga:$custChart1_dimensions',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
-      'max-results': 10,
+      'max-results': 30,
 	  'filters': 'ga:pagePath==$url',
-     // sort: '-ga:$custChart1_metrics',
+      //sort: '-ga:$custChart1_metrics',
      'ids': \"$ids\"
     },
     chart: {
@@ -335,8 +335,9 @@ for (var prop in monthViews) {
       'dimensions': 'ga:$custChart2_dimensions',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
+	  'max-results': 30,
 	  'filters': 'ga:pagePath==$url',
-	   sort: '-ga:$custChart2_metrics',
+	   //sort: '-ga:$custChart2_metrics',
       'ids': \"$ids\"
     },
     chart: {
