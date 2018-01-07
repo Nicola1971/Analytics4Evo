@@ -48,14 +48,11 @@ $e = &$modx->Event;
 $output ='';
 switch($e->name) {
 case 'OnDocFormRender':
-
 $output ="";
 if ($cms == 'modxevo') { 
 $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
 }
 $output .="
-<div class=\"tab-page widgets\" id=\"tabAnalytics\">
-<h2 class=\"tab\">Analytics</h2>
 <style>
 div#active-users, div#month-views {text-transform: capitalize;color:#058DC7;display:block;margin:0;font-size:1.4rem;min-height:18px;text-align:center;vertical-align:middle;}
 div#active-users .ActiveUsers-value {color:#ff9900; display:block; margin-top:14px; font-size: 5rem !important; font-weight:normal!important;}
@@ -69,12 +66,14 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 .card-header{text-transform: capitalize;}
 .widgets {padding:0!important;}
 .widgets .card-block {padding:0 10px 10px 10px!important;}
-.widgets .container { padding-left: 0!important; padding-right: 0!important; width: 100% }
+.widgets .container { padding: 0!important; width: 100% }
 </style>
+<div class=\"tab-page widgets\" id=\"tabAnalytics\">
+<h2 class=\"tab\">Analytics</h2>
 <!-- Create the containing elements. -->
-<h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
-<div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
 <div class=\"container\">
+<h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
+<div style=\"position:absolute;top:55px;right:25px;z-index:10;\" id=\"auth-button\"></div>
 <div class=\"col-md-9\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
 <div class=\"card-block\">

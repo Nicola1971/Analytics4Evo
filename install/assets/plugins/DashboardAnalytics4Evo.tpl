@@ -105,7 +105,7 @@ gapi.analytics.ready(function() {
 div#active-users {color:#058DC7;display:block;margin:0;text-align:center;vertical-align:middle;}
 div#active-users .ActiveUsers-value {color:#ff9900; display:block; margin-top:3px; font-size: 3rem !important; font-weight:normal!important;}
 </style>
-<div id=\"auth-button\"></div>
+<div style=\"position:absolute;top:25px;right:25px;z-index:10;\" id=\"auth-button\"></div>
 ";
 $e->output($cssOutput);
 break;
