@@ -9,7 +9,7 @@ Actually, server-side authorization and OAuth 2.0 are not supported.
 
 ![analytics4evo-logo](https://user-images.githubusercontent.com/7342798/34605431-e8a8a910-f20b-11e7-8cdc-786160c5e7fe.png)
 
-**Analytics4Evo** package includes:
+## **Analytics4Evo** package includes:
 
 * **Analytics4Evo** Module: site Analytics reports overview
 * **PageAnalytics4Evo** Plugin: resource/page Analytics reports
