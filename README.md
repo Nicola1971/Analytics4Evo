@@ -74,6 +74,8 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 2) select account and property
 3) copy the ids
 
+## Enter your 'client ID' and 'ids' in module/plugin settings 
+
 # To Do
 
 * better responsive charts (maybe move to another chart library)
