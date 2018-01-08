@@ -22,7 +22,7 @@ Actually, server-side authorization and OAuth 2.0 are not supported.
 NOTE : this package is developed for Evolution cms 1.3/1.4
 To work with 1.2 release you need to set to "modxevo" the "cms" option in module and plugin settings.
 
-# Customizable charts/widgets in module plugin settings
+# Customizable charts/widgets in module and plugins settings
 
 ## DashboardAnalytics4Evo widget plugin
 ### Sessions Chart
