@@ -56,7 +56,6 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 .google-visualization-table-page-next, .google-visualization-table-page-prev {height:25px;background:none!important;border:1px solid #dedede;color:#595959;background-image:none!important;}
 .google-visualization-table-page-numbers a:hover{text-decoration:none;box-shadow:0!important;border:1px solid #499bea;}
 .google-visualization-table-div-page.gradient {background:transparent; padding-top:10px;}
-.gapi-analytics-data-chart {width:100%!important;}
 .card-header{text-transform: capitalize;}
 .widgets .card-block {padding:0 10px 10px 10px!important;}
 .container { padding: 0 0.50rem; width: 100% }
