@@ -22,8 +22,34 @@ Actually, server-side authorization and OAuth 2.0 are not supported.
 NOTE : this package is developed for Evolution cms 1.3/1.4
 To work with 1.2 release you need to set to "modxevo" the "cms" option in module and plugin settings.
 
+# Customizable charts/widgets
 
+## Dashboard widget
+### Sessions Chart
+* **available metrics**: sessions,users
+* **available time frame**: 30daysAgo,14daysAgo,7daysAgo
 
+## Analytics4Evo
+### Sessions Chart
+* **available metrics**: sessions,users
+* **available time frame**: 30daysAgo,14daysAgo,7daysAgo
+#### User Number chart: 
+* **available metrics**: pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue
+#### Custom charts 1/2/3
+* **Custom chart 1/2/3 available metrics**: users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks
+* **Custom chart 1/2/3 available dimensions**: userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour
+* **Custom Chart1/2/3 available chart type** :PIE,LINE,COLUMN,BAR,TABLE,GEO
+
+## PageAnalytics4Evo
+### Sessions Chart
+* **available metrics**: sessions,users
+* **available time frame**: 30daysAgo,14daysAgo,7daysAgo
+#### User Number chart: 
+* **available metrics**: pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue
+#### Custom charts 1/2
+* **Custom chart 1/2 available metrics**: users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks
+* **Custom chart 1/2 available dimensions**: userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour
+* **Custom Chart1/2 available chart type** :PIE,LINE,COLUMN,BAR,TABLE,GEO
 
 
 # DashboardAnalytics4Evo (dashboard widget)
