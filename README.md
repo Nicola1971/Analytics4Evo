@@ -1,4 +1,4 @@
-# Analytics4Evo RC1
+# Analytics4Evo RC1.1
 Google Analytics for Evolution CMS
 Module, Plugin and widget
 
@@ -61,6 +61,10 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 # PageAnalytics4Evo (plugin)
 ![plugin](https://user-images.githubusercontent.com/7342798/34653651-4421d9d0-f3ef-11e7-882c-041ea99a7540.png)
 
+# To Run this package you need Analytics API client ID and Table ID 
+### For more informations about Creating a Google API Console project and client ID
+https://developers.google.com/identity/sign-in/web/devconsole-project
+
 ## How to allow access to analytics from your site
 
 1) go to https://console.developers.google.com/apis/credentials
@@ -74,10 +78,8 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 2) select account and property
 3) copy the ids
 
+
+
 #### Done? ok, now add your 'client ID' and 'ids' in module/plugin settings 
 
-# To Do
-
-* better responsive charts (maybe move to another chart library)
-* server-side authorization / OAuth 2.0 (rewrite with php api (?))
 
