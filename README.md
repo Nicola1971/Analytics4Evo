@@ -33,9 +33,9 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 ### Sessions Chart
 * **available metrics**: sessions,users
 * **available time frame**: 30daysAgo,14daysAgo,7daysAgo
-#### User Number chart: 
+### User Number chart: 
 * **available metrics**: pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue
-#### Custom charts 1/2/3
+### Custom charts 1/2/3
 * **Custom charts 1/2/3 available metrics**: users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks
 * **Custom charts 1/2/3 available dimensions**: userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour
 * **Custom charts 1/2/3 available chart type** :PIE,LINE,COLUMN,BAR,TABLE,GEO
@@ -44,9 +44,9 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 ### Sessions Chart
 * **available metrics**: sessions,users
 * **available time frame**: 30daysAgo,14daysAgo,7daysAgo
-#### User Number chart: 
+### User Number chart: 
 * **available metrics**: pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue
-#### Custom charts 1/2
+### Custom charts 1/2
 * **Custom chart 1/2 available metrics**: users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks
 * **Custom chart 1/2 available dimensions**: userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour
 * **Custom Chart1/2 available chart type** :PIE,LINE,COLUMN,BAR,TABLE,GEO
