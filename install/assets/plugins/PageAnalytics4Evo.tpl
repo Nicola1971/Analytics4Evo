@@ -69,7 +69,7 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 .widgets .container { padding: 0!important; width: 100% }
 </style>
 <div class=\"tab-page widgets\" id=\"tabAnalytics\">
-<h2 class=\"tab\">Analytics</h2>
+<h2 class=\"tab\" id=\"analytics4evo-tab\">Analytics</h2>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
 <div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
@@ -360,6 +360,12 @@ for (var prop in monthViews) {
     setTimeout(widgetReferres.execute(),200);
 	//settimeout to try to avoid GA rate limits
     setTimeout(monthViews.execute(),400);
+	$('analytics4evo-tab').addEventListener('click',function ()
+    {
+        widgetSessions.execute();
+		widgetcustChart1.execute();
+	    widgetcustChart2.execute();
+    });
   });
 (function($,sr){
   // debouncing function from John Hann
