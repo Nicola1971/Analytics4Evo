@@ -4,7 +4,7 @@
  * Google Analytics for Evolution
  *
  * @category	module
- * @version     RC1
+ * @version     RC1.1
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Manager
@@ -17,7 +17,7 @@
  */
 
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
-$version = 'RC1';
+$version = 'RC1.1';
 // get global language
 global $modx,$_lang;
 //config button
@@ -58,7 +58,7 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 .google-visualization-table-div-page.gradient {background:transparent; padding-top:10px;}
 .card-header{text-transform: capitalize;}
 .widgets .card-block {padding:0 10px 10px 10px!important;}
-.container { padding: 0 0.50rem; width: 100% }
+.container {padding: 0 0.50rem; width: 100%}
 </style>
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Analytics 4 Evo</h1>
@@ -330,7 +330,40 @@ for (var prop in monthViews) {
 	setTimeout(socialNetworks.execute(),200);
     setTimeout(monthViews.execute(),400);
   });
+(function($,sr){
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          };
 
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 100);
+      };
+  }
+  // smartresize 
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'smartresize');
+//resize charts
+$(document).ready(function () {
+    $(window).smartresize(function () {
+        widgetSessions.execute();
+		widgetcustChart1.execute();
+	    widgetcustChart2.execute();
+		widgetcustChart3.execute();
+    });
+});
 });
 </script>
 </body>

@@ -5,7 +5,7 @@
  *
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @category	plugin
- * @version     RC1
+ * @version     RC1.1
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
@@ -13,10 +13,10 @@
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
- * @lastupdate  07-01-2017
+ * @lastupdate  06-01-2017
  */
 
-$version = 'RC1';
+$version = 'RC1.1';
 // get manager role
 $internalKey = $modx->getLoginUserID();
 $sid = $modx->sid;
@@ -48,6 +48,7 @@ $e = &$modx->Event;
 $output ='';
 switch($e->name) {
 case 'OnDocFormRender':
+
 $output ="";
 if ($cms == 'modxevo') { 
 $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
@@ -70,9 +71,9 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 <div class=\"tab-page widgets\" id=\"tabAnalytics\">
 <h2 class=\"tab\">Analytics</h2>
 <!-- Create the containing elements. -->
-<div class=\"container\">
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
-<div style=\"position:absolute;top:55px;right:25px;z-index:10;\" id=\"auth-button\"></div>
+<div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
+<div class=\"container\">
 <div class=\"col-md-9\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
 <div class=\"card-block\">
@@ -142,7 +143,6 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
   fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
 }(window,document,'script'));
 </script>
-
 <script src=\"../assets/modules/analytics4evo/moment.min.js\"></script>
 <script src=\"../assets/modules/analytics4evo/active-users.js\"></script>
 ";  
@@ -361,7 +361,39 @@ for (var prop in monthViews) {
 	//settimeout to try to avoid GA rate limits
     setTimeout(monthViews.execute(),400);
   });
+(function($,sr){
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          };
 
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 100);
+      };
+  }
+  // smartresize 
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'smartresize');
+//resize charts
+jQuery(document).ready(function () {
+    jQuery(window).smartresize(function () {
+        widgetSessions.execute();
+		widgetcustChart1.execute();
+	    widgetcustChart2.execute();
+    });
+});
 });
 </script>
 ";  

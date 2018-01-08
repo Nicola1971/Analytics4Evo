@@ -5,7 +5,7 @@
  *
  * @author      Nicola Lambathakis http://www.tattoocms.it/
  * @category    plugin
- * @version     RC1
+ * @version     RC1.1
  * @license	    http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @events OnManagerWelcomeHome,OnManagerWelcomePrerender
  * @internal    @installset base
@@ -15,7 +15,7 @@
  * @documentation Requirements: This plugin requires Evolution 1.3.5 or later
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
  * @link        
- * @lastupdate  07/01/2017
+ * @lastupdate  08/01/2017
 */
 
 // get manager role
@@ -98,9 +98,39 @@ gapi.analytics.ready(function() {
     widgetSessions.execute();
     activeUsers.execute();
   });
+(function($,sr){
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          };
 
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 100);
+      };
+  }
+  // smartresize 
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'smartresize');
+//resize charts
+jQuery(document).ready(function () {
+    jQuery(window).smartresize(function () {
+        widgetSessions.execute();
+    });
 });
-</script> 
+});
+</script>
 <style>
 div#active-users {color:#058DC7;display:block;margin:0;text-align:center;vertical-align:middle;}
 div#active-users .ActiveUsers-value {color:#ff9900; display:block; margin-top:3px; font-size: 3rem !important; font-weight:normal!important;}
