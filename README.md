@@ -33,7 +33,7 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 ### Sessions Chart
 * **available metrics**: sessions,users
 * **available time frame**: 30daysAgo,14daysAgo,7daysAgo
-### User Number chart: 
+### 30 days Users count: 
 * **available metrics**: pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue
 ### Custom charts 1/2/3
 * **Custom charts 1/2/3 available metrics**: users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks
@@ -44,7 +44,7 @@ To work with 1.2 release you need to set to "modxevo" the "cms" option in module
 ### Sessions Chart
 * **available metrics**: sessions,users
 * **available time frame**: 30daysAgo,14daysAgo,7daysAgo
-### User Number chart: 
+### 30 days Users count: 
 * **available metrics**: pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue
 ### Custom charts 1/2
 * **Custom chart 1/2 available metrics**: users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks
