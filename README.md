@@ -4,6 +4,8 @@ Module, Plugin and widget
 
 ![analytics4evo-logo](https://user-images.githubusercontent.com/7342798/34605431-e8a8a910-f20b-11e7-8cdc-786160c5e7fe.png)
 
+http://www.tattoocms.it/extras/packages/analytics4evo.html
+
 
 **Important**: This package is based on [Google Analytics Embed API](https://ga-dev-tools.appspot.com/embed-api/) JavaScript library and use **Google Sign-In**. 
 
