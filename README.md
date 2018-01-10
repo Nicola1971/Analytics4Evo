@@ -16,9 +16,10 @@ Module, Plugin and widget
 NOTE : this package is developed for Evolution cms 1.3/1.4
 To work with 1.2 release you need to set to "modxevo" the "cms" option in module and plugin settings.
 
-# To Run this package you need Analytics API client ID and Table ID 
 
 This package is based on [Google Analytics Embed API](https://ga-dev-tools.appspot.com/embed-api/) JavaScript library and use **Google Sign-In**. 
+
+# To Run this package you need Analytics API client ID and Table ID 
 
 ### For more informations about Creating a Google API Console project and client ID
 https://developers.google.com/identity/sign-in/web/devconsole-project
