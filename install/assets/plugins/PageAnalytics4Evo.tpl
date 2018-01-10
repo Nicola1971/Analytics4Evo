@@ -202,7 +202,7 @@ for (var prop in monthViews) {
       'metrics': 'ga:$sess_metrics',
       'start-date': '$sess_time',
       'end-date': 'yesterday',
-	  'max-results': 30,
+	  'max-results': 60,
 	  'filters': 'ga:pagePath==$url',
      'ids': \"$ids\"
     },

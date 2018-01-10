@@ -80,7 +80,7 @@ gapi.analytics.ready(function() {
       'metrics': 'ga:$sess_metrics',
       'start-date': '$sess_time',
       'end-date': 'yesterday',
-	  'max-results': 30,
+	  'max-results': 60,
      'ids': \"$ids\"
     },
     chart: {
