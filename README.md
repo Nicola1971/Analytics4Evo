@@ -7,13 +7,6 @@ Module, Plugin and widget
 # Info and Instructions at:
 ### http://www.tattoocms.it/extras/packages/analytics4evo.html
 
-
-**Important**: This package is based on [Google Analytics Embed API](https://ga-dev-tools.appspot.com/embed-api/) JavaScript library and use **Google Sign-In**. 
-
-Before users can view their account information on the Google Analytics web site, they must first log in to their Google Accounts
-
-Actually, server-side authorization and OAuth 2.0 are not supported.
-
 # **Analytics4Evo** package includes:
 
 * **Analytics4Evo** Module: site Analytics reports overview
@@ -24,6 +17,9 @@ NOTE : this package is developed for Evolution cms 1.3/1.4
 To work with 1.2 release you need to set to "modxevo" the "cms" option in module and plugin settings.
 
 # To Run this package you need Analytics API client ID and Table ID 
+
+This package is based on [Google Analytics Embed API](https://ga-dev-tools.appspot.com/embed-api/) JavaScript library and use **Google Sign-In**. 
+
 ### For more informations about Creating a Google API Console project and client ID
 https://developers.google.com/identity/sign-in/web/devconsole-project
 
