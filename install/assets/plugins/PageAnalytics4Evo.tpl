@@ -5,18 +5,18 @@
  *
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @category	plugin
- * @version     RC1.1
+ * @version     1 RC1.2
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
- * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;30daysAgo,14daysAgo,7daysAgo;30daysAgo &custNum_metrics=Custom Number report :;list;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;pageviews &custChart1_title= Custom chart 1 Title:;string;Bounce Rate &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;bounceRate &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;date &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;LINE &custChart2_title= Custom chart 2 Title:;string; &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;list;modxevo,evolution;evolution
+ * @internal    @properties &wdgVisibility=Show Analytics tab for:;menu;All,AdminOnly,AdminExcluded,ThisRoleOnly,ThisUserOnly;All &ThisRole=Show only for this role:;string;;;(role id) &ThisUser=Show only for this user:;string;;;(username) &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;list;sessions,users;sessions &sess_time=Session/Users time period:;list;7daysAgo,14daysAgo,30daysAgo,60daysAgo;30daysAgo &custNum_metrics=Custom Number report :;list;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;pageviews &custChart1_title= Custom chart 1 Title:;string;Bounce Rate &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;bounceRate &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;date &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;LINE &custChart2_title= Custom chart 2 Title:;string; &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;list;modxevo,evolution;evolution
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
- * @lastupdate  06-01-2017
+ * @lastupdate  10-01-2017
  */
 
-$version = 'RC1.1';
+$version = '1 RC1.2';
 // get manager role
 $internalKey = $modx->getLoginUserID();
 $sid = $modx->sid;
@@ -105,13 +105,18 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 <div class=\"card-block\">
   <div id=\"widgetVisitors\"></div>	
 </div></div></div>
-
-<div class=\"col-md-12\"><div class=\"card\">
+<div class=\"clearfix\"></div>
+<div class=\"col-md-6\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Previous Page </div> 
 <div class=\"card-block\">
   <div id=\"widgetPrevPage\"></div>	
 </div></div></div>
-
+<div class=\"col-md-6\"><div class=\"card\">
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Next Page </div> 
+<div class=\"card-block\">
+  <div id=\"widgetNextPage\"></div>	
+</div></div></div>
+<div class=\"clearfix\"></div>
 <div class=\"col-md-6\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Keywords </div> 
 <div class=\"card-block\">
@@ -288,7 +293,7 @@ for (var prop in monthViews) {
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 30,
-	  'filters': 'ga:pagePath==$url',
+	  'filters': 'ga:pagePath==$url,ga:previousPagePath!=$url',
       sort: '-ga:users',
      'ids': \"$ids\"
     },
@@ -302,7 +307,29 @@ for (var prop in monthViews) {
       }
     }
   });
-
+      // widgetNextPage: NextPage.
+  var widgetNextPage = new gapi.analytics.googleCharts.DataChart({
+     reportType: 'ga',
+    query: {
+      metrics: 'ga:users',
+      dimensions: 'ga:PagePath',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday',
+      'max-results': 30,
+	  'filters': 'ga:previousPagePath==$url',
+      sort: '-ga:users',
+     'ids': \"$ids\"
+    },
+    chart: {
+      type: 'TABLE',
+      container: 'widgetNextPage',
+      options: {
+        width: '100%',
+		page: 'enable',
+		pageSize: '10'
+      }
+    }
+  });
     // widgetcustChart1
   var widgetcustChart1 = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
@@ -352,14 +379,15 @@ for (var prop in monthViews) {
     document.querySelector(\"#auth-button\").style.display='none';  
     widgetSessions.execute();
 	widgetVisitors.execute();
-	widgetKeywords.execute();
 	widgetPrevPage.execute();
+	widgetNextPage.execute()
 	activeUsers.execute();	
+	monthViews.execute();
 	widgetcustChart1.execute();
 	widgetcustChart2.execute();
-    setTimeout(widgetReferres.execute(),200);
-	//settimeout to try to avoid GA rate limits
-    setTimeout(monthViews.execute(),400);
+		//settimeout to try to avoid GA rate limits
+    setTimeout(widgetReferres.execute(),500);    
+	setTimeout(widgetKeywords.execute(),1000);
 	$('analytics4evo-tab').addEventListener('click',function ()
     {
         widgetSessions.execute();
