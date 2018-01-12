@@ -5,7 +5,7 @@
  *
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @category	plugin
- * @version     1 RC1.2
+ * @version     1 RC1.3
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
@@ -13,10 +13,10 @@
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
- * @lastupdate  10-01-2017
+ * @lastupdate  12-01-2017
  */
 
-$version = '1 RC1.2';
+$version = '1 RC1.3';
 // get manager role
 $internalKey = $modx->getLoginUserID();
 $sid = $modx->sid;
@@ -316,7 +316,7 @@ for (var prop in monthViews) {
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 30,
-	  'filters': 'ga:previousPagePath==$url',
+	  'filters': 'ga:pagePath!=$url,ga:previousPagePath==$url',
       sort: '-ga:users',
      'ids': \"$ids\"
     },
