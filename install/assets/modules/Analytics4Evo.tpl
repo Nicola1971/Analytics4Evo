@@ -4,20 +4,20 @@
  * Google Analytics for Evolution
  *
  * @category	module
- * @version     1 RC1.2
+ * @version     1 RC1.3
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
- * @internal	@modx_category Manager
+ * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @properties &IDclient=ID client:;string;;;application ID client &ids=ids:;string;;;Table ID (ids) &sess_metrics=Session/Users Chart metrics:;menu;sessions,users;sessions &sess_time=Session/Users time period:;menu;7daysAgo,14daysAgo,30daysAgo,60daysAgo;30daysAgo &custNum_metrics=Custom Number report:;menu;pageviews,sessions,users,newUsers,bounceRate,timeOnPage,adsenseRevenue;users &custChart1_title= Custom chart 1 Title:;string; &custChart1_metrics=Custom chart 1 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;sessions &custChart1_dimensions=Custom chart 1 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;country &custChart1_Chart=Custom Chart1 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;GEO &custChart2_title= Custom chart 2 Title:;string; &custChart2_metrics=Custom chart 2 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;sessions &custChart2_dimensions=Custom chart 2 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;deviceCategory &custChart2_Chart=Custom Chart2 chart type:;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &custChart3_title= Custom chart 3 Title:;string;Traffic Sources &custChart3_metrics=Custom chart 3 metrics:;menu;users,newUsers,sessions,bounces,bounceRate,sessionDuration,avgSessionDuration,hits,organicSearches,pageValue,entrances,entranceRate,pageviews,timeOnPage,exits,pageLoadTime,adsenseRevenue,adsenseCTR,adsenseAdsViewed,adsenseAdsClicks;sessions &custChart3_dimensions=Custom chart 3 dimensions:;menu;userType,sessionCount,referralPath,fullReferrer,campaign,source,medium,sourceMedium,keyword,adContent,socialNetwork,campaignCode,browser,browserVersion,operatingSystem,operatingSystemVersion,mobileDeviceBranding,mobileDeviceModel,deviceCategory,browserSize,continent,country,region,city,hostname,pagePath,pageTitle,landingPagePath,secondPagePath,exitPagePath,previousPagePath,date,year,month,week,day,hour,dayOfWeek,dateHour;medium &custChart3_Chart=Custom Chart3 chart type :;menu;PIE,LINE,COLUMN,BAR,TABLE,GEO;PIE &cms=cms:;menu;modxevo,evolution;evolution
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
- * @lastupdate  10-01-2017
+ * @lastupdate  12-01-2017
  */
 
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
-$version = '1 RC1.2';
+$version = '1 RC1.3';
 // get global language
 global $modx,$_lang;
 //config button
@@ -35,15 +35,13 @@ $output .="
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Analytics4Evo </title>"; 
-  
+  <title> Analytics4Evo </title>";   
 if ($cms == 'modxevo') { 
 $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
 }
 else {
 $output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"media/style/".$modx->config['manager_theme']."/style.css\">";  
 }
-
 $output .="
 </head>
 <body class=\"widgets\">
@@ -86,7 +84,8 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div> <div class=\"card-block\" id=\"widgetVisitors\"></div></div></div>
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Content </div> <div class=\"card-block\" id=\"widgetContent\"></div></div></div>
 <div class=\"col-md-6\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Referring </div> <div class=\"card-block\" id=\"widgetReferring\"></div></div></div>
-<div class=\"col-md-6\"><div class=\"card\" data-stateful=\"true\" data-inner-id=\"top\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Social Network </div> <div class=\"card-block\" id=\"socialNetworks\"></div></div></div>
+<div class=\"col-md-6\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Keywords </div> <div class=\"card-block\" id=\"widgetKeywords\"></div></div></div>
+<div class=\"col-md-12\"><div class=\"card\" data-stateful=\"true\" data-inner-id=\"top\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Social Network </div> <div class=\"card-block\" id=\"socialNetworks\"></div></div></div>
 <div class=\"clearfix\"></div>
 <div class=\"pull-left\" style=\"margin-left:12px;\">
 <span class=\"text-muted\"><i class=\"fa fa-bar-chart\"></i> Analytics4Evo $version</span>
@@ -261,7 +260,7 @@ for (var prop in monthViews) {
 	  filters: 'ga:medium==referral',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
-      'max-results': 10,
+      'max-results': 30,
       sort: '-ga:pageviews',
      'ids': \"$ids\"
     },
@@ -269,7 +268,9 @@ for (var prop in monthViews) {
       type: 'TABLE',
       container: 'widgetReferring',
       options: {
-        width: '100%'
+        width: '100%',
+		page: 'enable',
+		pageSize: '10'
       }
     }
   }); 
@@ -295,6 +296,28 @@ for (var prop in monthViews) {
       }
     }
   }); 
+       // widgetKeywords: Keywords.
+  var widgetKeywords = new gapi.analytics.googleCharts.DataChart({
+     reportType: 'ga',
+    query: {
+      metrics: 'ga:sessions',
+      dimensions: 'ga:keyword',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday',
+      'max-results': 30,
+      sort: '-ga:sessions',
+     'ids': \"$ids\"
+    },
+    chart: {
+      type: 'TABLE',
+      container: 'widgetKeywords',
+      options: {
+        width: '100%',
+		page: 'enable',
+		pageSize: '10'
+      }
+    }
+  });
     var socialNetworks = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
     query: {
@@ -303,7 +326,7 @@ for (var prop in monthViews) {
 	  filters: 'ga:hasSocialSourceReferral==Yes',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
-      'max-results': 10,
+      'max-results': 30,
       sort: '-ga:sessions',
      'ids': \"$ids\"
     },
@@ -311,7 +334,9 @@ for (var prop in monthViews) {
       type: 'TABLE',
       container: 'socialNetworks',
       options: {
-        width: '100%'
+        width: '100%',
+		page: 'enable',
+		pageSize: '10'
       }
     }
   }); 
@@ -319,16 +344,18 @@ for (var prop in monthViews) {
     //hide the auth-button
     document.querySelector(\"#auth-button\").style.display='none';  
     widgetSessions.execute();
+	activeUsers.execute();
+	monthViews.execute();
 	widgetVisitors.execute();
 	widgetcustChart1.execute();
 	widgetcustChart2.execute();
 	widgetcustChart3.execute();
-	widgetContent.execute();
-	widgetReferring.execute();
-    activeUsers.execute();		
+	widgetContent.execute();	   		
 	//settimeout to try to avoid GA rate limits
-	setTimeout(socialNetworks.execute(),200);
-    setTimeout(monthViews.execute(),400);
+	setTimeout(widgetReferring.execute(),500); 
+	setTimeout(widgetKeywords.execute(),500);
+	setTimeout(socialNetworks.execute(),500);
+    setTimeout(widgetReferring.execute(),500);
   });
 (function($,sr){
   // debouncing function from John Hann
