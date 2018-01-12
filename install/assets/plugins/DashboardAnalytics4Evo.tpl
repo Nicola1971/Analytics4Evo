@@ -5,7 +5,7 @@
  *
  * @author      Nicola Lambathakis http://www.tattoocms.it/
  * @category    plugin
- * @version     1 RC1.2
+ * @version     1 RC1.3
  * @license	    http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @events OnManagerWelcomeHome,OnManagerWelcomePrerender
  * @internal    @installset base
@@ -15,7 +15,7 @@
  * @documentation Requirements: This plugin requires Evolution 1.3.5 or later
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
  * @link        
- * @lastupdate  10/01/2017
+ * @lastupdate  12/01/2017
 */
 
 // get manager role
