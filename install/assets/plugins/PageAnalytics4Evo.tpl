@@ -223,7 +223,7 @@ for (var prop in monthViews) {
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 30,
-      sort: '-ga:users',
+      sort: '-ga:date',
 	  'filters': 'ga:pagePath==$url',
      'ids': \"$ids\"
     },
