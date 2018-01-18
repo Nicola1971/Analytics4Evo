@@ -431,9 +431,7 @@ jQuery(document).ready(function () {
 });
 </script>
 ";  
-$output .="
-</div></div>	";
-    break;
+break;
 }
 $e->output($output);
 return;
