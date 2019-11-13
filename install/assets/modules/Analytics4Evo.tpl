@@ -4,7 +4,7 @@
  * Google Analytics for Evolution
  *
  * @category	module
- * @version     1 RC1.3
+ * @version     1 RC1.4
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @icon        fa fa-bar-chart
  * @internal	@modx_category Analytics
@@ -17,7 +17,7 @@
  */
 
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
-$version = '1 RC1.3';
+$version = '1 RC1.4';
 // get global language
 global $modx,$_lang;
 //config button
@@ -61,7 +61,8 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Analytics 4 Evo</h1>
 <div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
-<div class=\"container\">
+<div class=\"container-fluid\">
+<div class=\"row\">
 <div class=\"col-md-9\"><div class=\"card\">
 <div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
 <div class=\"card-block\">
@@ -77,7 +78,8 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 </div></div>
 </div>
 </div>
-<div class=\"container\">
+
+<div class=\"row\">
 <div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_title </div> <div class=\"card-block\" id=\"widgetcustChart1\"></div></div></div>
 <div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_title </div> <div class=\"card-block\" id=\"widgetcustChart2\"></div></div></div>
 <div class=\"col-md-4\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart3_title </div> <div class=\"card-block\" id=\"widgetcustChart3\"></div></div></div>
@@ -85,15 +87,17 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 <div class=\"col-md-12\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Content </div> <div class=\"card-block\" id=\"widgetContent\"></div></div></div>
 <div class=\"col-md-6\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Referring </div> <div class=\"card-block\" id=\"widgetReferring\"></div></div></div>
 <div class=\"col-md-6\"><div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Top Keywords </div> <div class=\"card-block\" id=\"widgetKeywords\"></div></div></div>
-<div class=\"col-md-12\"><div class=\"card\" data-stateful=\"true\" data-inner-id=\"top\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Social Network </div> <div class=\"card-block\" id=\"socialNetworks\"></div></div></div>
-<div class=\"clearfix\"></div>
-<div class=\"pull-left\" style=\"margin-left:12px;\">
+<div class=\"col-md-12\"><div class=\"card\" data-stateful=\"true\" data-inner-id=\"top\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Social Network </div> <div class=\"card-block\" id=\"socialNetworks\"></div>
+</div>
+<div class=\"row\">
+<div class=\"col-md-6\">
 <span class=\"text-muted\"><i class=\"fa fa-bar-chart\"></i> Analytics4Evo $version</span>
   </div>
-<div class=\"buttonConfig pull-right\" style=\"margin-right:12px;\">
+<div class=\"buttonConfig text-right col-md-6\">
  $button_config
   </div>
-</div>
+</div></div>
+
 <!-- Load the library. -->
 <script>
 (function(w,d,s,g,js,fjs){
