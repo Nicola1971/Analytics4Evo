@@ -5,7 +5,7 @@
  *
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @category	plugin
- * @version     1 RC1.3
+ * @version     1 RC1.4
  * @internal    @events OnDocFormRender
  * @internal	@modx_category Analytics
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
@@ -13,10 +13,10 @@
  * @internal @installset base, sample
  * @internal    @disabled 0
  * @reportissues https://github.com/Nicola1971/Analytics4Evo/issues
- * @lastupdate  12-01-2017
+ * @lastupdate  13-11-2019
  */
 
-$version = '1 RC1.3';
+$version = '1 RC1.4';
 // get manager role
 $internalKey = $modx->getLoginUserID();
 $sid = $modx->sid;
@@ -50,8 +50,8 @@ switch($e->name) {
 case 'OnDocFormRender':
 
 $output ="";
-if ($cms == 'modxevo') { 
-$output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";  
+if ($cms == 'modxevo') {
+$output .="<link type=\"text/css\" rel=\"stylesheet\" href=\"../assets/modules/analytics4evo/12/default/style.css\">";
 }
 $output .="
 <style>
@@ -73,70 +73,72 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 <!-- Create the containing elements. -->
 <h1><i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> Page Analytics for <small>$url</small> </h1>
 <div style=\"position:absolute;top:25px;right:35px;z-index:10;\" id=\"auth-button\"></div>
-<div class=\"container\">
+<div class=\"container-fluid\">
+<div class=\"row\">
 <div class=\"col-md-9\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $sess_metrics </div>
 <div class=\"card-block\">
-<div style='width:100%;' id=\"widgetSessions\"></div>	
+<div style='width:100%;' id=\"widgetSessions\"></div>
 </div></div></div>
 <div class=\"col-md-3\">
-<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Right Now</div> 
+<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Right Now</div>
 <div class=\"card-block\">
 <div id=\"active-users\"></div>
 </div></div>
-<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days $custNum_metrics</div> 
+<div class=\"card\"><div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Last 30 Days $custNum_metrics</div>
 <div class=\"card-block\">
 <div id=\"month-views\"></div>
 </div></div>
 </div>
 <div class=\"clearfix\"></div>
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_title </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart1_title </div>
 <div class=\"card-block\">
-  <div id=\"widgetcustChart1\"></div>	
+  <div id=\"widgetcustChart1\"></div>
 </div></div></div>
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_title </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> $custChart2_title </div>
 <div class=\"card-block\">
-  <div id=\"widgetcustChart2\"></div>	
+  <div id=\"widgetcustChart2\"></div>
 </div></div></div>
 <div class=\"col-md-12\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Visitors </div>
 <div class=\"card-block\">
-  <div id=\"widgetVisitors\"></div>	
+  <div id=\"widgetVisitors\"></div>
 </div></div></div>
 <div class=\"clearfix\"></div>
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Previous Page </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Previous Page </div>
 <div class=\"card-block\">
-  <div id=\"widgetPrevPage\"></div>	
+  <div id=\"widgetPrevPage\"></div>
 </div></div></div>
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Next Page </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Next Page </div>
 <div class=\"card-block\">
-  <div id=\"widgetNextPage\"></div>	
+  <div id=\"widgetNextPage\"></div>
 </div></div></div>
 <div class=\"clearfix\"></div>
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Keywords </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Keywords </div>
 <div class=\"card-block\">
-  <div id=\"widgetKeywords\"></div>	
+  <div id=\"widgetKeywords\"></div>
 </div></div></div>
 
 <div class=\"col-md-6\"><div class=\"card\">
-<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Referres </div> 
+<div class=\"card-header\"> <i class=\"fa fa-bar-chart\"></i> Referres </div>
 <div class=\"card-block\">
-  <div id=\"widgetReferres\"></div>	
+  <div id=\"widgetReferres\"></div>
 </div></div></div>
-<div class=\"clearfix\"></div>
-<div class=\"buttonConfig pull-left\" style=\"margin-left:12px;\">
+</div>
+<div class=\"row\">
+<div class=\"col-md-6\">
 <span class=\"text-muted\"><i class=\"fa fa-bar-chart\"></i> PageAnalytics4Evo $version</span>
   </div>
-<div class=\"buttonConfig pull-right\" style=\"margin-right:12px;\">
+<div class=\"buttonConfig text-right col-md-6\">
  $button_pl_config
   </div>
-</div>
-</div>
+</div></div>
+
 
 <!-- Load the library. -->
 
@@ -150,7 +152,7 @@ div#month-views h1 {color:#ff9900; display:block; margin-top:14px; font-size: 3r
 </script>
 <script src=\"../assets/modules/analytics4evo/moment.min.js\"></script>
 <script src=\"../assets/modules/analytics4evo/active-users.js\"></script>
-";  
+";
 
 $output .="
 <script>
@@ -169,7 +171,7 @@ gapi.analytics.ready(function() {
     pollingInterval: 5,
 	'ids': \"$ids\"
   });
- 
+
 //custom number report
 var monthViews = new gapi.analytics.report.Data({
  query: {
@@ -185,10 +187,10 @@ for (var prop in monthViews) {
       var outputDiv = document.getElementById('month-views');
 	  var jsonViews = JSON.stringify(monthViews[prop]);
 	  if (jsonViews !== '{\"ga:$custNum_metrics\":\"0\"}') {
-      outputDiv.innerHTML = '$custNum_metrics: ' + '<h1>' + monthViews[prop] +  '</h1>'; 
+      outputDiv.innerHTML = '$custNum_metrics: ' + '<h1>' + monthViews[prop] +  '</h1>';
 	  }
 		else {
-       outputDiv.innerHTML = '$custNum_metrics: ' + '<h1> 0 </h1>'; 
+       outputDiv.innerHTML = '$custNum_metrics: ' + '<h1> 0 </h1>';
         }
 	 }
 	 console.log(JSON.stringify(monthViews[prop]));
@@ -213,7 +215,7 @@ for (var prop in monthViews) {
         width: '100%'
       }
     }
-  }); 
+  });
        // widgetVisitors: Visitors.
   var widgetVisitors = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
@@ -223,7 +225,7 @@ for (var prop in monthViews) {
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
       'max-results': 30,
-      sort: '-ga:date',
+      sort: '-ga:users',
 	  'filters': 'ga:pagePath==$url',
      'ids': \"$ids\"
     },
@@ -236,7 +238,7 @@ for (var prop in monthViews) {
 		pageSize: '10'
       }
     }
-  }); 
+  });
      // widgetKeywords: Keywords.
   var widgetKeywords = new gapi.analytics.googleCharts.DataChart({
      reportType: 'ga',
@@ -351,7 +353,7 @@ for (var prop in monthViews) {
         pieHole: 4/9
       }
     }
-  }); 
+  });
     // widgetcustChart2
   var widgetcustChart2 = new gapi.analytics.googleCharts.DataChart({
     reportType: 'ga',
@@ -376,17 +378,17 @@ for (var prop in monthViews) {
   });
   gapi.analytics.auth.on('success', function(response) {
     //hide the auth-button
-    document.querySelector(\"#auth-button\").style.display='none';  
+    document.querySelector(\"#auth-button\").style.display='none';
     widgetSessions.execute();
 	widgetVisitors.execute();
 	widgetPrevPage.execute();
 	widgetNextPage.execute()
-	activeUsers.execute();	
+	activeUsers.execute();
 	monthViews.execute();
 	widgetcustChart1.execute();
 	widgetcustChart2.execute();
 		//settimeout to try to avoid GA rate limits
-    setTimeout(widgetReferres.execute(),500);    
+    setTimeout(widgetReferres.execute(),500);
 	setTimeout(widgetKeywords.execute(),1000);
 	$('analytics4evo-tab').addEventListener('click',function ()
     {
@@ -416,7 +418,7 @@ for (var prop in monthViews) {
           timeout = setTimeout(delayed, threshold || 100);
       };
   }
-  // smartresize 
+  // smartresize
   jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
 
 })(jQuery,'smartresize');
@@ -430,8 +432,10 @@ jQuery(document).ready(function () {
 });
 });
 </script>
-";  
-break;
+";
+$output .="
+</div></div>	";
+    break;
 }
 $e->output($output);
 return;
