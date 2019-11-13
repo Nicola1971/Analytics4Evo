@@ -1,4 +1,4 @@
-# Analytics4Evo RC1.3
+# Analytics4Evo RC1.4
 Google Analytics for Evolution CMS
 Module, Plugin and widget
 
