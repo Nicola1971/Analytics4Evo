@@ -1,5 +1,5 @@
 # Analytics4Evo RC1.4
-Google Analytics for Evolution CMS
+Google Analytics for Evolution CMS 1.4.10
 Module, Plugin and widget
 
 ![analytics4evo-logo](https://user-images.githubusercontent.com/7342798/34605431-e8a8a910-f20b-11e7-8cdc-786160c5e7fe.png)
