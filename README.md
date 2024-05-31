@@ -1,3 +1,4 @@
+# [THIS PROJECT IS DEPRECATED] 
 # Analytics4Evo RC1.4
 Google Analytics for Evolution CMS 1.4.10
 Module, Plugin and widget
